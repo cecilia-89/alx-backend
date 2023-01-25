@@ -22,7 +22,21 @@ class FIFOCache(BaseCaching):
             del self.cache_data[discard]
             print("DISCARD: {}\n".format(discard))
 
+
+
     def get(self, key):
         """returns a value"""
         value = self.cache_data.get(key)
         return value
+my_cache = FIFOCache()
+my_cache.put("A", "Hello")
+my_cache.put("B", "World")
+my_cache.put("C", "Holberton")
+my_cache.put("D", "School")
+my_cache.print_cache()
+my_cache.put("E", "Battery")
+my_cache.print_cache()
+my_cache.put("C", "Street")
+my_cache.print_cache()
+my_cache.put("F", "Mission")
+my_cache.print_cache()
