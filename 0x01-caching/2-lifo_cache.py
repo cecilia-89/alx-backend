@@ -13,7 +13,7 @@ class LIFOCache(BaseCaching):
 
     def put(self, key, item):
         """assigns item to the cache system"""
-        if key is not None or item is not None:
+        if key is None or item is None:
             return
         self.cache_data[key] = item
         length = len(self.cache_data.keys())
