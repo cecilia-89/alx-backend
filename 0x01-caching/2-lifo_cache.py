@@ -10,7 +10,6 @@ class LIFOCache(BaseCaching):
     def __init__(self):
         """instantiates an object"""
         super().__init__()
-        self.lastIn = ""
 
     def put(self, key, item):
         """assigns item to the cache system"""
@@ -19,9 +18,9 @@ class LIFOCache(BaseCaching):
         self.cache_data[key] = item
         length = len(self.cache_data.keys())
         if length > BaseCaching.MAX_ITEMS:
-            del self.cache_data[self.lastIn]
-            print("DISCARD: {}".format(self.lastIn))
-        self.lastIn = key
+            del self.cache_data[lastIn]
+            print("DISCARD: {}".format(lastIn))
+        lastIn = key
 
     def get(self, key):
         """returns a value"""
