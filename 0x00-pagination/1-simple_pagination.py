@@ -38,4 +38,8 @@ class Server:
         for item in [page, page_size]:
             assert isinstance(item, int) and item > 0
         index = index_range(page, page_size)
+        for i in index:
+            if i > len(self.__dataset):
+                return '[]'
+
         return self.__dataset[index[0]: index[-1]]
