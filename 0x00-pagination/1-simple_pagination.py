@@ -40,6 +40,6 @@ class Server:
         index = index_range(page, page_size)
         for i in index:
             if i >= len(self.__dataset):
-                return '[]'
+                return []
 
         return self.__dataset[index[0]: index[-1]]
