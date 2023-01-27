@@ -52,7 +52,6 @@ class Server:
         if page > total_pages:
             next_page = None
 
-
         page_dict = {"page_size": len(page_data),
                      "page": page,
                      "data": page_data,
@@ -61,13 +60,3 @@ class Server:
                      "total_pages": total_pages}
 
         return page_dict
-
-server = Server()
-
-print(server.get_hyper(1, 2))
-print("---")
-print(server.get_hyper(2, 2))
-print("---")
-print(server.get_hyper(100, 3))
-print("---")
-print(server.get_hyper(3000, 100))
