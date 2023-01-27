@@ -53,6 +53,6 @@ class Server:
         page_dict = {"page_size": len(page_data), "page": page,
                      "data": page_data, "next_page": next_page,
                      "prev_page": prev_page,
-                     "total_page": math.ceil(len(self.__dataset) / page_size)}
+                     "total_pages": math.ceil(len(self.__dataset) / page_size)}
 
         return page_dict
