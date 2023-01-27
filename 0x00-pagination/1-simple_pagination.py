@@ -37,9 +37,28 @@ class Server:
         """returns data set with appropriate page"""
         for item in [page, page_size]:
             assert isinstance(item, int) and item > 0
+        self.dataset()
         index = index_range(page, page_size)
-        for i in index:
-            if i > len(self.__dataset):
-                return []
-
         return self.__dataset[index[0]: index[-1]]
+
+
+server = Server()
+
+try:
+    should_err = server.get_page(-10, 2)
+except AssertionError:
+    print("AssertionError raised with negative values")
+
+try:
+    should_err = server.get_page(0, 0)
+except AssertionError:
+    print("AssertionError raised with 0")
+
+try:
+    should_err = server.get_page(2, 'Bob')
+except AssertionError:
+    print("AssertionError raised when page and/or page_size are not ints")
+
+print(server.get_page(1, 3))
+print(server.get_page(3, 2))
+print(server.get_page(3000, 100))
