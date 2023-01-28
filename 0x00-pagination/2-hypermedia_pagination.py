@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Module: 0-simple_helper_func"""
-from typing import Tuple, List, Dict
+from typing import Tuple, List
 import csv
 import math
 
@@ -41,7 +41,7 @@ class Server:
         index = index_range(page, page_size)
         return self.__dataset[index[0]: index[-1]]
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> List:
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
         """returns a dictionary containing pages information"""
         page_data = self.get_page(page, page_size)
         prev_page, next_page = page - 1, page + 1
