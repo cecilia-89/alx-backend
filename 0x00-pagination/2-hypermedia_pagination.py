@@ -53,7 +53,7 @@ class Server:
                      "page": page,
                      "data": page_data,
                      "next_page": nxt if nxt <= total_pages else None,
-                     "prev_page": prev if prev >= 0 else None,
+                     "prev_page": prev if prev > 1 else None,
                      "total_pages": total_pages}
 
         return page_dict
