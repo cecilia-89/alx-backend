@@ -48,12 +48,11 @@ class Server:
         page_data = self.get_page(page, page_size)
         total_pages = math.ceil(len(self.__dataset) / page_size)
 
-
         page_dict = {"page_size": len(page_data),
                      "page": page,
                      "data": page_data,
                      "next_page": nxt if nxt <= total_pages else None,
-                     "prev_page": prev if prev > 1 else None,
+                     "prev_page": prev if prev > 0 else None,
                      "total_pages": total_pages}
 
         return page_dict
