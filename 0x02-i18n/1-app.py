@@ -19,6 +19,9 @@ class Config:
     """configures other languages in our app"""
     LANGUAGES = ["en", "fr"]
 
+    def __init__(self):
+        pass
+
 
 if __name__ == "__main__":
     app.run()
