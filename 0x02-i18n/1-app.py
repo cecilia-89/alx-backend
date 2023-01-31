@@ -2,9 +2,7 @@
 """Sets up a basic flask app"""
 
 from flask_babel import Babel
-from flask import Flask
-
-app = Flask(__name__)
+app = __import__('0-app').app
 babel = Babel(app)
 
 
