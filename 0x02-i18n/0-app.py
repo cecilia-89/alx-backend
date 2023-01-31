@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def main():
+def main() -> str:
     """creates a home route"""
     return render_template('0-index.html')
 
