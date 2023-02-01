@@ -1,29 +1,31 @@
 #!/usr/bin/env python3
-"""Sets up a basic flask app"""
+"""Module: 1-app.py"""
 
 from flask import Flask, render_template, request
 from flask_babel import Babel
 
 
+class Config:
+    """configures other languages in our app"""
+    LANGUAGES = ["en", "fr"]
+    BABEL_DEFAULT_LOCALE = "en"
+    BABEL_DEFAULT_TIMEZONE = "UTC"
+
 app = Flask(__name__)
-babel = Babel(app)
+app.config.from_object(Config)
 
 
 @app.route('/', strict_slashes=False)
 def index():
     """creates a home route"""
-    return render_template('2-index.html')
+    return render_template('1-index.html')
 
 
-class Config:
-    """configures other languages in our app"""
-    LANGUAGES = ["en", "fr"]
-
-
-@babel.localselector
 def get_locale():
     """determine the best match with our supported languages"""
     return request.accept_languages.best_match(app.config['LANGUAGES'])
+
+babel = Babel(app, locale_selector=get_locale)
 
 
 if __name__ == "__main__":
