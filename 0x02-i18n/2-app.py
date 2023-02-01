@@ -13,19 +13,19 @@ class Config:
 
 app = Flask(__name__)
 app.config.from_object(Config)
-
+babel = Babel(app)
 
 @app.route('/', strict_slashes=False)
 def index():
     """creates a home route"""
     return render_template('2-index.html')
 
-
+@babel.localeselector
 def get_locale():
     """determine the best match with our supported languages"""
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
-babel = Babel(app, locale_selector=get_locale)
+
 
 
 if __name__ == "__main__":
