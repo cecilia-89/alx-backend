@@ -12,15 +12,12 @@ babel = Babel(app)
 @app.route('/', strict_slashes=False)
 def index():
     """creates a home route"""
-    return render_template('0-index.html')
+    return render_template('1-index.html')
 
 
 class Config:
     """configures other languages in our app"""
     LANGUAGES = ["en", "fr"]
-
-    def __init__(self):
-        pass
 
 
 if __name__ == "__main__":
