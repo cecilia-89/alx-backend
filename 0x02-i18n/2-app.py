@@ -18,7 +18,7 @@ app.config.from_object(Config)
 @app.route('/', strict_slashes=False)
 def index():
     """creates a home route"""
-    return render_template('1-index.html')
+    return render_template('2-index.html')
 
 
 def get_locale():
