@@ -10,8 +10,7 @@ users = {
     3: {"name": "Spock", "locale": "kg", "timezone": "Vulcan"},
     4: {"name": "Teletubby", "locale": None, "timezone": "Europe/London"},
 }
-app = Flask(__name__)
-babel = Babel(app)
+
 
 
 class Config:
@@ -20,11 +19,12 @@ class Config:
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
-
+app = Flask(__name__)
+babel = Babel(app)
 app.config.from_object(Config)
 
 
-#@babel.localeselector
+@babel.localeselector
 def get_locale():
     """determine the best match with our supported languages"""
     has_locale = request.args.to_dict().get("locale")
