@@ -2,7 +2,8 @@
 """Module: 5-app.py"""
 
 from flask import Flask, render_template, request, g
-from flask_babel import Babel, lazy_gettext as _
+from flask_babel import Babel
+from flask_babel import lazy_gettext as _
 
 users = {
     1: {"name": "Balou", "locale": "fr", "timezone": "Europe/Paris"},
