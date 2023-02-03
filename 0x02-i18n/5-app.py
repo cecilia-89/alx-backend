@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Module: 2-app.py"""
+"""Module: 5-app.py"""
 
 from flask import Flask, render_template, request, g
 from flask_babel import Babel, lazy_gettext as _
@@ -24,8 +24,7 @@ class Config:
 app.config.from_object(Config)
 
 
-@babel.localeselector
-@babel.localeselector
+#@babel.localeselector
 def get_locale():
     """determine the best match with our supported languages"""
     has_locale = request.args.to_dict().get("locale")
